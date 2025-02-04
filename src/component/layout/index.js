@@ -12,7 +12,7 @@ export const Layout = () => {
             <Outlet>
             </Outlet>
             <footer>
-
+                <div>Something</div>
             </footer>
         </>
     )
