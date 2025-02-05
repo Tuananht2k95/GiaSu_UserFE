@@ -1,19 +1,14 @@
 import { Outlet } from "react-router-dom"
+import { Header } from "./header.js"
+import { Footer } from "./footer.js"
+import React from "react";
 
 export const Layout = () => {
     return(
         <>
-            <header>
-                <div className="logo">
-                    <img src="">
-                    </img>
-                </div>
-            </header>
-            <Outlet>
-            </Outlet>
-            <footer>
-                <div>Something</div>
-            </footer>
+            <Header></Header>
+            <Outlet></Outlet>
+            <Footer></Footer>
         </>
     )
 }
