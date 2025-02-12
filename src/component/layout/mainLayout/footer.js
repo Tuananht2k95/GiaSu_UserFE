@@ -1,8 +1,6 @@
 import { Container, ListGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
-import React from "react";
-
 
 export const Footer = () => {
     return(
