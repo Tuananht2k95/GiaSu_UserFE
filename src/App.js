@@ -1,11 +1,9 @@
-import './App.scss';
-import { RouterProvider } from 'react-router-dom';
-import { routers } from './router';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { RouterProvider } from "react-router-dom";
+import { router } from "./router/index.js";
 
 function App() {
   return (
-    <RouterProvider router={ routers }></RouterProvider>
+   <RouterProvider router={router} />
   );
 }
 
