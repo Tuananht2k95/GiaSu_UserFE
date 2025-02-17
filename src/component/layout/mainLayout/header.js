@@ -53,7 +53,7 @@ export const Header = () => {
                         menu2Items.map(
                             (item) => {
                                 return(
-                                    <Button variant={item.variant} className="m-1">
+                                    <Button variant={item.variant} className="m-1" key={item.title}>
                                         <Navbar.Text>
                                             <a href={item.href}>{item.title}</a>
                                         </Navbar.Text>
@@ -70,7 +70,7 @@ export const Header = () => {
                         menu1Items.map(
                             (item) => {
                                 return(
-                                    <ListGroup.Item key={item.index}>
+                                    <ListGroup.Item key={item.title}>
                                         <Link to={item.link}>{item.title}</Link>
                                     </ListGroup.Item>
                                 )

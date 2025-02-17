@@ -27,7 +27,7 @@ export const AuthHeader = () => {
                         buttonItems.map(
                             (item) => {
                                 return(
-                                    <Button variant={item.variant} className="m-1">
+                                    <Button variant={item.variant} className="m-1" key={item.title}>
                                         <Navbar.Text>
                                             {item.title}
                                         </Navbar.Text>

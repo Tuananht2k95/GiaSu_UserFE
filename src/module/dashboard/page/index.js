@@ -1,8 +1,26 @@
 import { Container, Card, Button, CardGroup } from "react-bootstrap"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+
+import "./index.scss";
 
 export const Index = () => {
-    const button = <Button variant="primary">Đăng ký thuê gia sư ngay</Button>;
+    const button = (
+        buttonColor = "primary", 
+        title ='Đăng ký thuê gia sư ngay',
+        href = "/"
+    ) => {
+        return(
+            <Button variant={buttonColor}>
+                <Link to={href}>
+                    <Card.Text>
+                        {title}
+                    </Card.Text>
+                </Link>
+            </Button>
+        )
+    };
     const cardContent1 = [
         {
             title: "Dạy hiệu quả",
@@ -39,7 +57,7 @@ export const Index = () => {
     ]
 
     return(
-        <Container>
+        <Container className="my-2 ">
             <Card>
                 {/* <Card.Img src="" alt="dang-ky-thue-gia-su" fluid></Card.Img> */}
                 {/* <Card.ImgOverlay> */}
@@ -48,24 +66,18 @@ export const Index = () => {
                         <Card.Title>Mang thành công đến với con bạn</Card.Title>
                         <Card.Text>Bạn muốn con chăm ngoan, học giỏi? Đăng ký ngay! Đội ngũ gia sư giỏi của GrowGreen sẽ giúp con bạn tiến bộ nhanh chóng.</Card.Text>
                     </Card.Body>
-                    <Card.Body>
-                        <Button variant="warning">
-                            Đăng ký thuê gia sư ngay
-                        </Button>
-                    </Card.Body>
+                    {button()}
                 {/* </Card.ImgOverlay> */}
             </Card>
             <Card>
                 <Card.Header>Bạn là giáo viên, sinh viên?</Card.Header>
                 <Card.Body>
                     <Card.Text>Gia nhập vào đội ngũ gia sư của GrowGreen, nhận lớp và có thêm thu nhập từ những kiến thức, kỹ năng giảng dạy của bạn.</Card.Text>
-                    <Card.Link href="auth/register">Đăng ký làm gia sư</Card.Link>
-                    <Card.Link href="auth/login">Đăng nhập vào tài khoản</Card.Link>
-                    <Card.Link href="product">Xem danh sách lớp mới</Card.Link>
+                    <Link to="auth">Đăng ký làm gia sư</Link>
+                    <Link to="auth">Đăng nhập vào tài khoản</Link>
+                    <Link to="product">Xem danh sách lớp mới</Link>
                 </Card.Body>
-                <Card.Body>
-                    <Button variant="success">Đến trang dành cho gia sư</Button>
-                </Card.Body>
+                {button("success", "Đến trang dành cho gia sư", "auth")}
             </Card>
             <Card>
                 <Card.Header>Bạn cần thuê gia sư?</Card.Header>
@@ -73,9 +85,7 @@ export const Index = () => {
                     <Card.Title>Trải nghiệm dịch vụ chất lượng và chuyên nghiệp!</Card.Title>
                     <Card.Text>Thật tốn thời gian khi gặp phải gia sư không phù hợp. GrowGreen luôn làm việc chuyên nghiệp và trách nhiệm, bắt đầu từ việc tuyển chọn đến đào tạo gia sư. Đảm bảo gia sư luôn đạt tiêu chuẩn về kiến thức và kỹ năng giảng dạy.</Card.Text>
                 </Card.Body>
-                <Card.Body>
-                    {button}
-                </Card.Body>
+                {button("primary")}
             </Card>
             <Card>
                 <Card.Header>Tại sao chọn trung tâm gia sư GrowGreen?</Card.Header>
@@ -85,21 +95,17 @@ export const Index = () => {
                             cardContent1.map(
                                 (item) => {
                                     return(
-                                        <Card>
-                                            <Card.Body>
+                                        <Card.Body key={item.title}>
                                                 <Card.Title>{item.title}</Card.Title>
                                                 <Card.Text>{item.text}</Card.Text>
-                                            </Card.Body>
-                                        </Card>
+                                        </Card.Body>
                                     )
                                 }
                             )
                         }
                     </CardGroup>
                 </Card.Body>
-                <Card.Body>
-                    {button}
-                </Card.Body>
+                {button("success")}
             </Card>
             <Card>
                 <Card.Header>Những lợi ích mà bạn có được:</Card.Header>
@@ -108,9 +114,9 @@ export const Index = () => {
                         cardContent2.map(
                             (item) => {
                                 return(
-                                    <div>
-                                        <span>
-                                            <FontAwesomeIcon icon="fa-solid fa-check" />
+                                    <div key={item.text}>
+                                        <span className="p-1">
+                                            <FontAwesomeIcon icon={faCheck} />
                                         </span>
                                         <span>
                                             {item.text}
@@ -121,9 +127,7 @@ export const Index = () => {
                         )
                     }
                 </Card.Body>
-                <Card.Body>
-                    {button}
-                </Card.Body>
+                {button("warning")}
             </Card>
         </Container>
     )
