@@ -1,7 +1,7 @@
 import { Nav, Navbar, Container, ListGroup, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export const Header = () => {
+export const MainHeader = () => {
     const menu1Items = [
         {
             link: "/", 
