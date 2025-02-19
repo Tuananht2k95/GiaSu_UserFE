@@ -1,3 +1,23 @@
-#authPage {
-    height: 60vh;
+#authContainer {
+    margin-top: 5rem;
+    width: 40vw;
+    min-width: fit-content;
+    // background-color: black
+    border-radius: 10px;
+    border: 2px solid black;
+    backdrop-filter: blur(30px);
+
+    #formContainer {
+        position: relative;
+        margin: 2rem 0;
+
+        #toggleButton {
+            position: absolute;
+            bottom: 0;
+            width: 8rem;
+            min-width: fit-content;
+            translate: (5%);
+        }
+    }
 }
+

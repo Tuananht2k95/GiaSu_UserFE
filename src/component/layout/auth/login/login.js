@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form"
 import { Button, Container } from "react-bootstrap";
-import { authApi } from "../../../api/GiaSuUserService/auth";
+import { authApi } from "../../../../api/GiaSuUserService/auth";
 import { useCookies } from "react-cookie";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify'
+import './login.scss'
 
 export function Login() {
     const { register, handleSubmit, formState: {errors} } = useForm();
@@ -38,45 +39,45 @@ export function Login() {
 
     return ( 
         <Container className="d-flex justify-content-center">
-            <form id="loginForm" className="col-5" onSubmit={(handleSubmit(login))}>
-                <h3 className="mb-3">Đăng nhập</h3>
-                <section className="position-relative">
-                    <label htmlFor="email" className="col-4">Email:</label>
+            <form id="loginForm" className="col-6" onSubmit={(handleSubmit(login))}>
+                <h3 className="mb-3 loginTitle">Đăng nhập</h3>
+                <section className="position-relative d-flex justify-content-center">
+                    {/* <label htmlFor="email" className="col-4">Email:</label> */}
                     <input  
-                        className="col-8"
+                        className="inputLogin"
                         type="text" 
-                        placeholder="email" 
+                        placeholder="Email..." 
                         {...register("email", { 
                             required: 'Email is required',
                         })}
                     />
-                    {errors.email && <p className="mb-0 ms-5 position-absolute top-100 start-0">{errors.email.message}</p>}
+                    {errors.email && <p className="loginText mb-0 position-absolute top-100 start-50 translate-middle">{errors.email.message}</p>}
                 </section>
                 <br></br>
-                <section className="position-relative">
-                    <label htmlFor="password" className="col-4">Password:</label>
+                <section className="position-relative d-flex justify-content-center mb-5">
+                    {/* <label htmlFor="password" className="col-4">Password:</label> */}
                     <input 
-                        className="col-8"
+                        className="inputLogin"
                         type="password" 
-                        placeholder="password" 
+                        placeholder="Password..." 
                         {...register("password", { 
                             required: 'Password is required',
                             minLength: {
                                 value: 6,
-                                message: 'password must be at least 6 characters'
+                                message: 'Password must be at least 6 characters'
                             },
                             maxLength: {
                                 value: 20,
-                                message: 'password must be at most 20 characters'
+                                message: 'Password must be at most 20 characters'
                             }
                         })}
                     />
-                    {errors.password && <p className="mb-0 ms-5 position-absolute top-100 start-0">{errors.password.message}</p>}
+                    {errors.password && <p className="loginText mb-0 position-absolute top-100 start-50 translate-middle">{errors.password.message}</p>}
                 </section>
                 <br></br>
-                <Button className="" type="submit" variant="secondary">Đăng nhập</Button>
-                <ToastContainer></ToastContainer>
+                <Button className="submitButton" type="submit" variant="secondary">Đăng nhập</Button>
             </form>
+            <ToastContainer></ToastContainer>
         </Container>
     )
 }

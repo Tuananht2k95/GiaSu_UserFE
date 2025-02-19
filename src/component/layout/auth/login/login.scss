@@ -1,0 +1,37 @@
+#loginForm {
+    .loginTitle {
+        height: 50px;
+        white-space: nowrap;
+    }
+
+    section {
+        .inputLogin {
+            width: 15rem;
+            height: 2rem;
+            border-radius: 5px;
+            border: 2px solid;
+            background: transparent;
+            padding: 1rem;
+        }
+
+        ::placeholder {
+            color: black;
+        }
+
+        .loginText {
+            color: rgb(94, 52, 4);
+            white-space: nowrap;
+            bottom: 0;
+        }
+    }
+   
+    .submitButton {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        translate: (-105%);
+        width: 8rem;
+        min-width: fit-content;
+    }
+}
+

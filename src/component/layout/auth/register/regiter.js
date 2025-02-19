@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form"
 import { Container, Button } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
-import { userTeacherApi } from "../../../api/GiaSuUserService/teacher/user";
+import { userTeacherApi } from "../../../../api/GiaSuUserService/teacher/user";
 
 
 export function Register() {
@@ -14,9 +14,8 @@ export function Register() {
     return ( 
         <Container className="d-flex justify-content-center">
             <form id="loginForm" className="col-5" onSubmit={(handleSubmit(store))}>
-                <h3 className="mb-3">Đăng nhập</h3>
+                <h3 className="mb-3">Đăng ký</h3>
                 <section className="position-relative">
-                    <label htmlFor="email" className="col-4">Email:</label>
                     <input  
                         className="col-8"
                         type="text" 
@@ -25,11 +24,10 @@ export function Register() {
                             required: 'Email is required',
                         })}
                     />
-                    {errors.email && <p className="mb-0 ms-5 position-absolute top-100 start-0">{errors.email.message}</p>}
+                    {errors.email && <p className="mb-0 position-absolute top-100 start-0">{errors.email.message}</p>}
                 </section>
                 <br></br>
                 <section className="position-relative">
-                    <label htmlFor="password" className="col-4">Password:</label>
                     <input 
                         className="col-8"
                         type="password" 
@@ -46,10 +44,9 @@ export function Register() {
                             }
                         })}
                     />
-                    {errors.password && <p className="mb-0 ms-5 position-absolute top-100 start-0">{errors.password.message}</p>}
+                    {errors.password && <p className="mb-0 position-absolute top-100 start-0">{errors.password.message}</p>}
                 </section>
-                <br></br>
-                <Button className="" type="submit" variant="secondary">Đăng nhập</Button>
+                <Button className="submitButton" type="submit" variant="secondary">Đăng ký</Button>
                 <ToastContainer></ToastContainer>
             </form>
         </Container>
