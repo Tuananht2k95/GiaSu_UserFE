@@ -1,23 +1,28 @@
 import { useState } from "react"
-import { AuthHeader } from "../../../component/layout/auth/header.js"
-import { Login } from "../../../component/layout/auth/login.js"
-import { Register } from "../../../component/layout/auth/regiter.js"
+import { Login } from "../../../component/layout/auth/login/login.js"
+import { Register } from "../../../component/layout/auth/register/regiter.js"
 import { Button } from "react-bootstrap"
 import { Container } from "react-bootstrap"
+import './index.scss'
 
 export function Index() {
-    const [isLogin, setIsLogin] = useState(true)
+    const [isLogin, setIsLogin] = useState(true);
     const toggleAuthMode = () => {
-        setIsLogin(!isLogin)
+        setIsLogin(!isLogin);
     }
     return(
         <>
-            <AuthHeader></AuthHeader>
-            <Container className="text-center my-5">
-                {
-                    isLogin ? <Login/> : <Register/>
-                }
-                <Button className="mx-auto" onClick={toggleAuthMode}>Click me to change</Button>
+            <Container id="authContainer">
+                <Container id="formContainer" className="text-center" key={isLogin ? 'login' : 'register'}>
+                    {
+                        isLogin ? <Login/> : <Register/>
+                    }
+                    <Button id="toggleButton" className="mx-auto" onClick={toggleAuthMode}>
+                        {
+                            isLogin ? "Đăng ký" : "Đăng nhập"
+                        }
+                    </Button>
+                </Container>
             </Container>
         </>
     )
