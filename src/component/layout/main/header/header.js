@@ -1,5 +1,7 @@
-import { Nav, Navbar, Container, ListGroup, Button } from "react-bootstrap";
+import { Nav, ListGroup, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import './header.scss'
+import { Logo } from "../../logo/logo";
 
 export const MainHeader = () => {
     const menu1Items = [
@@ -24,7 +26,7 @@ export const MainHeader = () => {
             title: "Liên hệ",
         }
     ];
-    const menu2Items = [
+    const menuButton = [
         {   
             title: 'Dành cho gia sư',
             variant: 'secondary',
@@ -38,34 +40,27 @@ export const MainHeader = () => {
     ]
 
     return(
-        <Navbar className="d-flex flex-column p-0">
-            <Container className="d-flex justify-content-between bg-dark">
-                <Nav className="">
-                    <a href="/">
-                        <Navbar.Brand>
-                            <img src="/images/growgreen-logo.jpg" alt="Gia Su"></img>
-                        </Navbar.Brand>
-                        <span className="fw-bold">Gia Sư</span>
-                    </a>
-                </Nav>
-                <Nav>
+        <nav className="navMain">
+            <section className="headerSection">
+                <Logo />
+                <Nav className="menuButtons">
                     {
-                        menu2Items.map(
+                        menuButton.map(
                             (item) => {
                                 return(
-                                    <Button variant={item.variant} className="m-1" key={item.title}>
-                                        <Navbar.Text>
-                                            <a href={item.href}>{item.title}</a>
-                                        </Navbar.Text>
-                                    </Button>
+                                    <a href={item.href}>
+                                        <Button variant={item.variant} className="m-1" key={item.title}>
+                                            {item.title}
+                                        </Button>
+                                    </a>
                                 )
                             }
                         )
                     }
                 </Nav>
-            </Container>
-            <Container className="bg-light p-0">
-                <ListGroup className="d-flex flex-row justify-content-start">
+            </section>
+            <section className="headerSection">
+                <ListGroup className="">
                     {
                         menu1Items.map(
                             (item) => {
@@ -78,7 +73,7 @@ export const MainHeader = () => {
                         )
                     }
                 </ListGroup>
-            </Container>
-        </Navbar>
+            </section>
+        </nav>
     )
 }

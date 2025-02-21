@@ -41,7 +41,7 @@ export const Index = () => {
     ]
 
     return(
-        <Container>
+        <Container className="dashboardPage">
             <Card>
                 {/* <Card.Img src="" alt="dang-ky-thue-gia-su" fluid></Card.Img> */}
                 {/* <Card.ImgOverlay> */}

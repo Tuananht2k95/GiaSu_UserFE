@@ -1,4 +1,4 @@
-import { Container, ListGroup } from "react-bootstrap";
+import { ListGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
 import "./footer.scss"
@@ -6,7 +6,7 @@ import "./footer.scss"
 export const Footer = () => {
     return(
         <footer>
-            <Container className="bg-info d-flex justify-content-end align-items-center">
+            <section className="bg-info d-flex justify-content-end align-items-center">
                 <h4 className="m-2">Contact</h4>
                 <ListGroup horizontal>
                     <ListGroup.Item>
@@ -20,7 +20,7 @@ export const Footer = () => {
                         </a>
                     </ListGroup.Item>
                 </ListGroup>
-            </Container>
+            </section>
         </footer>
     )  
 }

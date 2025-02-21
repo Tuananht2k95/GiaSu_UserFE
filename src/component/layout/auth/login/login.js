@@ -38,8 +38,8 @@ export function Login() {
     };
 
     return ( 
-        <Container className="d-flex justify-content-center">
-            <form id="loginForm" className="col-6" onSubmit={(handleSubmit(login))}>
+        <Container id="loginForm" className="d-flex justify-content-center">
+            <form className="col-6" onSubmit={(handleSubmit(login))}>
                 <h3 className="mb-3 loginTitle">Đăng nhập</h3>
                 <section className="position-relative d-flex justify-content-center">
                     {/* <label htmlFor="email" className="col-4">Email:</label> */}
