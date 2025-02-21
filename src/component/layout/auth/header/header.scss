@@ -1,17 +1,6 @@
-nav .container {
+.authHeader {
     height: 15vh;
-    a {
-        text-decoration: none;
-        font-size: 18px;
-        font-weight: 500;
-        white-space: nowrap;
-        color: black;
-
-        img {
-            width: 6vw;
-            min-width: 50px;
-            margin-right: 0.75rem;
-        }
-    }
-    
+    padding: 4vh;
+    margin: auto;
+    max-width: 82.5rem;
 }

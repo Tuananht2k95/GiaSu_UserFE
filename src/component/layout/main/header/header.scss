@@ -1,0 +1,37 @@
+.navMain {
+    max-width: 82.5rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding-top: 1.5rem;
+
+    .sectionHeader {
+        padding-left: 2rem;
+        padding-bottom: 0.5rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .menuButtons {
+            background-color: black;
+
+            button {
+                width: fit-content;
+            }
+        }
+    
+        .list-group {
+            flex-direction: row;
+        }
+    }
+}
+ 
+@media screen and (max-width: 992px) {
+    .navMain {
+        background-color: blue;
+        width: 100%;
+        margin: 0;
+    }
+}
