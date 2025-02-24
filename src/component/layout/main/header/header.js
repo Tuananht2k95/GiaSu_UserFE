@@ -4,7 +4,7 @@ import './header.scss'
 import { Logo } from "../../logo/logo";
 
 export const MainHeader = () => {
-    const menu1Items = [
+    const menuItems = [
         {
             link: "/", 
             title: 'Trang chủ',
@@ -48,11 +48,11 @@ export const MainHeader = () => {
                         menuButton.map(
                             (item) => {
                                 return(
-                                    <a href={item.href}>
+                                    <Link to={item.href}>
                                         <Button variant={item.variant} className="m-1" key={item.title}>
                                             {item.title}
                                         </Button>
-                                    </a>
+                                    </Link>
                                 )
                             }
                         )
@@ -62,7 +62,7 @@ export const MainHeader = () => {
             <section className="headerSection">
                 <ListGroup className="">
                     {
-                        menu1Items.map(
+                        menuItems.map(
                             (item) => {
                                 return(
                                     <ListGroup.Item key={item.title}>

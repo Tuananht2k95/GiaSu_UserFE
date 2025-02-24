@@ -21,7 +21,7 @@ export const Index = () => {
                 <Card>
                     <Card.Header>Thông tin cá nhân</Card.Header>
                     <Card.Body>
-                        
+                        {teacher.name}
                     </Card.Body>
                 </Card>
             </Container>

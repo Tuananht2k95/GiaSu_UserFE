@@ -1,6 +1,7 @@
-import { Navbar, Container, Nav, Button } from "react-bootstrap"
+import { Navbar, Nav, Button } from "react-bootstrap"
 import { useCookies } from "react-cookie"
 import { Link } from "react-router-dom"
+import { Logo } from '../../logo/logo.js'
 
 export const ProfileHeader = () => {
     const removeCookie = useCookies('user_token')[2];
@@ -11,17 +12,10 @@ export const ProfileHeader = () => {
 
     return(
         <>
-            <Navbar className="d-flex flex-column p-0">
-            <Container className="d-flex justify-content-between bg-dark">
-                <Nav className="">
-                    <a href="/">
-                        <Navbar.Brand>
-                            <img src="/images/growgreen-logo.jpg" alt="Gia Su"></img>
-                        </Navbar.Brand>
-                        <span className="fw-bold">Gia Sư</span>
-                    </a>
-                </Nav>
-                <Nav>
+            <nav className="navMain">
+                <section className="headerSection">
+                    <Logo />
+                    <Nav>
                     <Button variant="secondary" className="m-1">
                         <Navbar.Text>
                             <Link to='/profile'>Quản lý tài khoản</Link>
@@ -33,8 +27,8 @@ export const ProfileHeader = () => {
                         </Navbar.Text>
                     </Button>
                 </Nav>
-            </Container>
-        </Navbar>
+                </section>
+            </nav>
         </>
     )
 }

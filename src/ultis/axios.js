@@ -2,7 +2,8 @@ import axios from "axios";
 
 const STATUS_SUCCESS = [200,201]
 const baseAxios = axios.create({
-    baseURL: process.env.REACT_APP_BASE_URL_BE,
+    baseURL: "http://localhost:5050",
+    // baseURL: process.env.REACT_APP_BASE_URL_BE,
     headers: {
         'Content-Type': 'application/json',
     }
