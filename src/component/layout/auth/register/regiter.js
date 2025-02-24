@@ -1,15 +1,13 @@
 import { useForm } from "react-hook-form"
 import { Container, Button } from "react-bootstrap";
-import { ToastContainer, toast } from "react-toastify";
-import { userTeacherApi } from "../../../../api/GiaSuUserService/teacher/user";
+import { toast } from "react-toastify";
+import { authApi } from "../../../../api/GiaSuUserService/auth";
 import './register.scss'
-import { useNavigate } from "react-router-dom";
-
 
 export function Register() {
     const { register, handleSubmit, formState: {errors} } = useForm()
     const store = async (data) => {
-        const res = await userTeacherApi.store(data)
+        const res = await authApi.register(data)
         toast(res.message, {
             autoClose: 5000,
             hideProgressBar: false,
@@ -73,7 +71,6 @@ export function Register() {
             <br></br>
             <Button className="submitButton" type="submit" variant="secondary">Đăng ký</Button>
         </form>
-        <ToastContainer></ToastContainer>
     </Container>
     )
 }

@@ -1,4 +1,4 @@
-import { ProfileHeader } from "./header";
+import { ProfileHeader } from "./header/header";
 import { Footer } from "../footer/footer";
 import { Outlet } from "react-router-dom";
 

@@ -1,4 +1,4 @@
-import { Container, Card, Button, CardGroup } from "react-bootstrap"
+import { Card, Button, CardGroup } from "react-bootstrap"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import './index.scss'
@@ -41,7 +41,7 @@ export const Index = () => {
     ]
 
     return(
-        <Container className="dashboardPage">
+        <div className="dashboardPage">
             <Card>
                 {/* <Card.Img src="" alt="dang-ky-thue-gia-su" fluid></Card.Img> */}
                 {/* <Card.ImgOverlay> */}
@@ -127,6 +127,6 @@ export const Index = () => {
                     {button}
                 </Card.Body>
             </Card>
-        </Container>
+        </div>
     )
 }

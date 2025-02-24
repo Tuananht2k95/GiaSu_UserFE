@@ -1,37 +1,51 @@
 .navMain {
+    background-image: url("../../../../asset/background/authPageBG.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     max-width: 82.5rem;
     margin: auto;
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
     padding-top: 1.5rem;
 
-    .sectionHeader {
-        padding-left: 2rem;
+    .headerSection:first-child {
+        padding-left: 0.75rem;
         padding-bottom: 0.5rem;
         width: 100%;
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
 
         .menuButtons {
-            background-color: black;
 
             button {
                 width: fit-content;
             }
         }
-    
-        .list-group {
-            flex-direction: row;
-        }
     }
-}
- 
-@media screen and (max-width: 992px) {
-    .navMain {
-        background-color: blue;
-        width: 100%;
-        margin: 0;
+
+    .headerSection:last-child {
+
+        .list-group {
+            width: 100%;
+            flex-direction: row;
+
+            .list-group-item {
+                min-width: fit-content;
+                width: 20%;
+                border-radius: 0px;
+                text-align: center;
+
+                a {
+                    text-decoration: none;
+                }
+
+                a:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
     }
 }

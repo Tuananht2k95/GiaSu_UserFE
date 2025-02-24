@@ -10,6 +10,7 @@ export function Index() {
     const toggleAuthMode = () => {
         setIsLogin(!isLogin);
     }
+
     return(
         <>
             <Container id="authContainer">

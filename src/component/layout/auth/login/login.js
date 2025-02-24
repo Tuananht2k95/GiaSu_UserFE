@@ -4,12 +4,12 @@ import { authApi } from "../../../../api/GiaSuUserService/auth";
 import { useCookies } from "react-cookie";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 import './login.scss'
 
 export function Login() {
-    const { register, handleSubmit, formState: {errors} } = useForm();
-    const [cookies, setCookie] = useCookies('user_token');
+    const { register, handleSubmit, formState: {errors}, setError } = useForm();
+    const setCookie = useCookies('user_token')[1];
     const navigate = useNavigate()
     const login = async (data) => {
         try {
@@ -21,17 +21,17 @@ export function Login() {
                     expires: moment().add(7, "days").toDate()
                 });
                 navigate('/profile');
-            } else {
-                toast(res.message, {
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                  }
-                );
-            };
+                return;
+            }
+
+            for (const error of res.errors) {
+                setError(
+                    error.key,
+                    {
+                        message: error.messages
+                    }
+                )
+            }
         } catch (error) {
             toast(error);
         }
@@ -77,7 +77,6 @@ export function Login() {
                 <br></br>
                 <Button className="submitButton" type="submit" variant="secondary">Đăng nhập</Button>
             </form>
-            <ToastContainer></ToastContainer>
         </Container>
     )
 }
