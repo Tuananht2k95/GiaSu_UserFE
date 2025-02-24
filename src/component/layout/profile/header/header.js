@@ -3,7 +3,7 @@ import { useCookies } from "react-cookie"
 import { Link } from "react-router-dom"
 
 export const ProfileHeader = () => {
-    const [ cookies, setCookie, removeCookie ] = useCookies('user_token');
+    const removeCookie = useCookies('user_token')[2];
     const logout = () => {
         removeCookie('user_token');
         window.location.href = '/auth' 
