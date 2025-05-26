@@ -7,5 +7,8 @@ export const authApi = {
     },
     register: (data) => {
         return baseAxios.post(baseRoute + '/register', data)
+    },
+    resetPassword: (data) => {
+        return baseAxios.post(baseRoute + '/resetPassword', data)
     }
 }

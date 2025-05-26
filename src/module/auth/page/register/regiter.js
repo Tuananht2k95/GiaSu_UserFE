@@ -1,23 +1,38 @@
 import { useForm } from "react-hook-form"
 import { Container, Button } from "react-bootstrap";
 import { toast } from "react-toastify";
-import { authApi } from "../../../../api/GiaSuUserService/auth";
 import './register.scss'
+import { authApi } from "../../../../api/GiaSuUserService/auth";
 
-export function Register() {
-    const { register, handleSubmit, formState: {errors} } = useForm()
+export function RegisterPage() {
+    const { register, handleSubmit, formState: {errors}, setError } = useForm();
     const store = async (data) => {
-        const res = await authApi.register(data)
-        toast(res.message, {
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
+        try {
+            const res = await authApi.register(data);
+            toast(res.message, {
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                }
+            );
+            
+            if (res.errors) {
+                for (const error of res.errors) {
+                    setError(
+                        error.key,
+                        {
+                            message: error.message
+                        }
+                    );
+                } 
             }
-        );
-    }
+    
+        } catch (error) {            
+            toast(error.message);
+    }}
     return ( 
         <Container  id="registerForm" className="d-flex justify-content-center">
         <form className="col-6" onSubmit={(handleSubmit(store))}>

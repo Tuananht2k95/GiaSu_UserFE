@@ -1,19 +1,29 @@
 import { useForm } from "react-hook-form"
 import { Button, Container } from "react-bootstrap";
-import { authApi } from "../../../../api/GiaSuUserService/auth";
 import { useCookies } from "react-cookie";
 import moment from "moment";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
-import './login.scss'
+import { authApi } from "../../../../api/GiaSuUserService/auth";
 
-export function Login() {
+export function LoginPage() {
     const { register, handleSubmit, formState: {errors}, setError } = useForm();
     const setCookie = useCookies('user_token')[1];
     const navigate = useNavigate()
     const login = async (data) => {
         try {
             const res = await authApi.login(data);
+
+            if (res.errors) {
+                for (const error of res.errors) {
+                    setError(
+                        error.key,
+                        {
+                            message: error.message
+                        }
+                    );
+                }
+            }
 
             if (res.success) {
                 setCookie('user_token', res.data, {
@@ -23,15 +33,7 @@ export function Login() {
                 navigate('/profile');
                 return;
             }
-
-            for (const error of res.errors) {
-                setError(
-                    error.key,
-                    {
-                        message: error.messages
-                    }
-                )
-            }
+    
         } catch (error) {
             toast(error);
         }
@@ -77,6 +79,10 @@ export function Login() {
                 <br></br>
                 <Button className="submitButton" type="submit" variant="secondary">Đăng nhập</Button>
             </form>
+            <Link to={'/auth/register'}>
+                Chuyển sang trang đăng ký
+            </Link>
+            <Link to={'/auth/resetPassword'}>Quên mật khẩu?</Link>
         </Container>
     )
 }

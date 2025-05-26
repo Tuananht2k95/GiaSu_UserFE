@@ -30,7 +30,7 @@ export const MainHeader = () => {
         {   
             title: 'Dành cho gia sư',
             variant: 'secondary',
-            href: '/auth'
+            href: '/auth/login'
         },
         {
             title: 'Đăng ký thuê gia sư',
