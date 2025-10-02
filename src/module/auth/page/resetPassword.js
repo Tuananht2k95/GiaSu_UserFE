@@ -48,7 +48,7 @@ export function ResetPassword() {
         <Container className="authContainer">
             <form className="col-6" onSubmit={handleSubmit(resetPassword)}>
                 <h3 className="my-3">Đặt lại mật khẩu</h3>
-                <section className="position-relative d-flex justify-content-center">
+                <section className="position-relative d-flex justify-content-center mb-3">
                     <input
                         type="text" 
                         placeholder="Email..." 
@@ -58,7 +58,6 @@ export function ResetPassword() {
                     />
                     {errors.email && <p className="position-absolute top-100 start-50 translate-middle">{errors.email.message}</p>}    
                 </section>
-                <br></br>
                 <Button type="submit" variant="secondary" disabled={disabled} >Xác nhận email</Button>        
             </form>
             <div>

@@ -1,8 +1,7 @@
 export const USER = {
-    role: {
-        1: 'admin',
-        teacher: 2,
-    },
+    role: [
+        '', 'admin', 'user'
+    ],
     status: {
         active: 1,
         inactive: 2,

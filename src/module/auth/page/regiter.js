@@ -40,7 +40,7 @@ export function RegisterPage() {
         <Container className="authContainer">
         <form className="col-6" onSubmit={(handleSubmit(store))}>
             <h3 className="my-3">Đăng ký</h3>
-            <section className="position-relative d-flex justify-content-center">
+            <section className="position-relative d-flex justify-content-center mb-3">
                 {/* <label htmlFor="email" className="col-4">Email:</label> */}
                 <input  
                     type="text" 
@@ -51,8 +51,7 @@ export function RegisterPage() {
                 />
                 {errors.name && <p className="position-absolute top-100 start-50 translate-middle">{errors.name.message}</p>}
             </section>
-            <br></br>
-            <section className="position-relative d-flex justify-content-center">
+            <section className="position-relative d-flex justify-content-center mb-3">
                 {/* <label htmlFor="email" className="col-4">Email:</label> */}
                 <input  
                     type="text" 
@@ -63,8 +62,7 @@ export function RegisterPage() {
                 />
                 {errors.email && <p className="position-absolute top-100 start-50 translate-middle">{errors.email.message}</p>}
             </section>
-            <br></br>
-            <section className="position-relative d-flex justify-content-center">
+            <section className="position-relative d-flex justify-content-center mb-3">
                 {/* <label htmlFor="password" className="col-4">Password:</label> */}
                 <input 
                     type="password" 
@@ -83,8 +81,7 @@ export function RegisterPage() {
                 />
                 {errors.password && <p className="position-absolute top-100 start-50 translate-middle">{errors.password.message}</p>}
             </section>
-            <br></br>
-            <section className="position-relative d-flex justify-content-center">
+            <section className="position-relative d-flex justify-content-center mb-3">
                 {/* <label htmlFor="password" className="col-4">Password:</label> */}
                 <input 
                     type="password" 
@@ -99,7 +96,6 @@ export function RegisterPage() {
                 />
                 {errors.confirmPassword && <p className="position-absolute top-100 start-50 translate-middle">{errors.confirmPassword.message}</p>}
             </section>
-            <br></br>
             <Button type="submit" variant="secondary">Đăng ký</Button>
         </form>
         <div>
