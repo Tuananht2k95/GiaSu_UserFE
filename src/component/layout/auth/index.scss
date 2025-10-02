@@ -1,0 +1,14 @@
+#authPage {
+    height: 100vh;
+    background-image: url(./../../../asset/background/authPageBG.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    // position: relative;
+
+    #footer {
+        width: 100vw;
+        position: absolute;
+        bottom: 0;
+    }
+}

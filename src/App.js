@@ -1,9 +1,13 @@
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router/index.js";
+import { CookiesProvider } from "react-cookie";
 
 function App() {
   return (
-   <RouterProvider router={router} />
+    <CookiesProvider>
+      <RouterProvider router={router} />
+    </CookiesProvider>
+   
   );
 }
 
