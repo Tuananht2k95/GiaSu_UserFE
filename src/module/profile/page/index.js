@@ -14,7 +14,9 @@ export const Index = () => {
 
         if (response.success) {
             setTeacher(response.data);
-        }
+            console.log(response.data);
+            
+        }        
     }   
     useEffect(
         () => {

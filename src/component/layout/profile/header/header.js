@@ -6,7 +6,7 @@ export const ProfileHeader = () => {
     const removeCookie = useCookies('user_token')[2];
     const logout = () => {
         removeCookie('user_token');
-        window.location.href = '/auth' 
+        window.location.href = '/auth/login'; 
     };
 
     return(
