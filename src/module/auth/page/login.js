@@ -4,12 +4,13 @@ import { useCookies } from "react-cookie";
 import moment from "moment";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
-import { authApi } from "../../../../api/GiaSuUserService/auth";
+import { authApi } from "../../../api/GiaSuUserService/auth";
+import './authPage.scss'
 
 export function LoginPage() {
     const { register, handleSubmit, formState: {errors}, setError } = useForm();
     const setCookie = useCookies('user_token')[1];
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const login = async (data) => {
         try {
             const res = await authApi.login(data);
@@ -40,26 +41,24 @@ export function LoginPage() {
     };
 
     return ( 
-        <Container id="loginForm" className="d-flex justify-content-center">
+        <Container className="authContainer">
             <form className="col-6" onSubmit={(handleSubmit(login))}>
-                <h3 className="mb-3 loginTitle">Đăng nhập</h3>
+                <h3 className="my-3">Đăng nhập</h3>
                 <section className="position-relative d-flex justify-content-center">
-                    {/* <label htmlFor="email" className="col-4">Email:</label> */}
+                    <label htmlFor="email"></label>
                     <input  
-                        className="inputLogin"
                         type="text" 
                         placeholder="Email..." 
                         {...register("email", { 
                             required: 'Email is required',
                         })}
                     />
-                    {errors.email && <p className="loginText mb-0 position-absolute top-100 start-50 translate-middle">{errors.email.message}</p>}
+                    {errors.email && <p className="position-absolute top-100 start-50 translate-middle">{errors.email.message}</p>}
                 </section>
                 <br></br>
-                <section className="position-relative d-flex justify-content-center mb-5">
-                    {/* <label htmlFor="password" className="col-4">Password:</label> */}
+                <section className="position-relative d-flex justify-content-center">
+                    <label htmlFor="password"></label>
                     <input 
-                        className="inputLogin"
                         type="password" 
                         placeholder="Password..." 
                         {...register("password", { 
@@ -74,15 +73,20 @@ export function LoginPage() {
                             }
                         })}
                     />
-                    {errors.password && <p className="loginText mb-0 position-absolute top-100 start-50 translate-middle">{errors.password.message}</p>}
+                    {errors.password && <p className="position-absolute top-100 start-50 translate-middle">{errors.password.message}</p>}
                 </section>
                 <br></br>
-                <Button className="submitButton" type="submit" variant="secondary">Đăng nhập</Button>
+                <Button type="submit" variant="secondary">Đăng nhập</Button>
             </form>
-            <Link to={'/auth/register'}>
-                Chuyển sang trang đăng ký
-            </Link>
-            <Link to={'/auth/resetPassword'}>Quên mật khẩu?</Link>
+            <div>
+                <Link to={'/auth/register'}>
+                    Chuyển sang trang đăng ký
+                </Link>
+                <span>/</span>
+                <Link to={'/auth/resetPassword'}>
+                    Quên mật khẩu?
+                </Link>
+            </div>
         </Container>
     )
 }

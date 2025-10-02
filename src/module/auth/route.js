@@ -1,6 +1,6 @@
-import { ResetPassword } from "./page/resetPassword/resetPassword.js";
-import { LoginPage } from "./page/login/login.js";
-import { RegisterPage } from "./page/register/regiter.js";
+import { ResetPassword } from "./page/resetPassword.js";
+import { LoginPage } from "./page/login.js";
+import { RegisterPage } from "./page/regiter.js";
 
 export const authRoute = [
     {

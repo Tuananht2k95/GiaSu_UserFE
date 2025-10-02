@@ -19,10 +19,10 @@ export const AuthLayout= () => {
     )
 
     return(
-        <div id="authPage" className="position-realative">
+        <div id="authPage">
             <AuthHeader/>
             <Outlet></Outlet>
-            <div id="footerPage" className="position-absolute bottom-0">
+            <div id="footer">
                 <Footer></Footer>
             </div>
             <ToastContainer />
